@@ -98,21 +98,22 @@ for z in range((x+y)//2):
     old += 1
     new += 1
 
-for i in range(y):
-    for j in range(x):
-        if all_land[i][j] == 3:
-            i1 = i
-            j1 = j
+for i in range(x*y//10):
+    for i in range(y):
+        for j in range(x):
+            if all_land[i][j] >= 3:
+                i1 = i
+                j1 = j
+                break
+        if all_land[i1][j1] >= 3:
             break
-    if all_land[i1][j1] == 3:
-        break
-while all_land[i1][j1] != 0:
-    a = random.choice([-1, 1])
-    b = random.choice([-1, 1])
-    i1 = i1 + a
-    all_land[i1 - a][j1] = 0
-    j1 = j1 + b
-    all_land[i1][j1 - b] = 0
+    while all_land[i1][j1] != 0:
+        a = random.choice([-1, 1])
+        b = random.choice([-1, 1])
+        i1 = i1 + a
+        all_land[i1 - a][j1] = 0
+        j1 = j1 + b
+        all_land[i1][j1 - b] = 0
 
 
 for i in all_land:

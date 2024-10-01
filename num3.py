@@ -1,0 +1,23 @@
+from random import randint as rad
+lst = [rad(1, 1000) for i in range(20)]
+print(lst)
+lst.append(5000)
+lst.append(158)
+print(lst)
+lst.remove(158)
+print(lst)
+lst1 = [rad(1000, 2000) for i in range(20)]
+lst.extend(lst1)
+print(lst)
+lst.insert(15, rad(2000, 3000))
+print(lst)
+lst.pop(15)
+print(lst)
+print(lst.index(5000))
+lst.sort(key=lambda x: 0-x)
+print(lst)
+lst.reverse()
+print(lst)
+lst1 = lst.copy()
+print(lst1)
+lst.clear()

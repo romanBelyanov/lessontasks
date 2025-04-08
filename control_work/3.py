@@ -47,7 +47,7 @@ class Circle(Shape):
     
 area = [
     Rect(5, 10),
-    Circle(5),
+    Circle(5)
 ]
 for i in area:
     print(i.print_info())

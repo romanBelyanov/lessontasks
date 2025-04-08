@@ -1,12 +1,20 @@
-elements = []
-def permutations(lst, start=0):
-   if start == len(lst) - 1:
-       elements.append("".join(lst[:-1]))
-       return
-   else:
-       for i in range(start, len(lst)):
-           lst[start], lst[i] = lst[i], lst[start]
-           permutations(lst, start + 1)
-           lst[start], lst[i] = lst[i], lst[start]
-permutations(["1", "2", "3"])
-print(list(set(elements)))
+class BankAccount:
+    def __init__(self, balance):
+        self._balance = balance
+
+    def get_balance(self):
+        return self._balance
+    
+    def deposit(self, amount):
+        if amount > 0:
+            self._balance = self._balance + amount
+    
+    def withdraw(self, amount):
+        if self._balance - amount > 0:
+            self._balance = self._balance - amount
+
+account = BankAccount(15000)
+print(account.get_balance())
+account.deposit(5000)
+account.withdraw(10000)
+print(account.get_balance())

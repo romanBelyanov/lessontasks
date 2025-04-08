@@ -1,14 +1,33 @@
-lst = ["Математика", "Информатика", "Русский язык"]
-elements = []
-def permutations(lst, start=0):
-    if start == len(lst) - 1:
-        elements.append(lst[:-1])
-        return
-    else:
-        for i in range(start, len(lst)):
-            lst[start], lst[i] = lst[i], lst[start]
-            permutations(lst, start + 1)
-            lst[start], lst[i] = lst[i], lst[start]
-elements.extend([[i] * 2 for i in lst])
-permutations(lst)
-print(elements)
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+    @abstractmethod
+    def P(self):
+        pass
+
+    @abstractmethod
+    def print_info(self):
+        pass
+
+
+class Rect(Shape):
+    def __init__(self, a, b):
+        super().__init__()
+        self.a = a
+        self.b = b
+
+    def area(self):
+        return self.a*self.b
+    
+    def P(self):
+        return 2*(self.a+self.b)
+    
+    def print_info(self):
+        return f"Площадь прямоугольника равна {self.area()}\nПериметр прямоугольника равен {self.P()}"
+    
+area = Rect(5, 10)
+print(area.print_info())

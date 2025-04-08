@@ -1,20 +1,22 @@
 class BankAccount:
     def __init__(self, balance):
-        self._balance = balance
+        self.__balance = balance
 
     def get_balance(self):
-        return self._balance
+        return self.__balance
     
     def deposit(self, amount):
         if amount > 0:
-            self._balance = self._balance + amount
-    
+            self.__balance = self.__balance + amount
+
     def withdraw(self, amount):
-        if self._balance - amount > 0:
-            self._balance = self._balance - amount
+        if self.__balance - amount > 0:
+            self.__balance = self.__balance - amount
 
 account = BankAccount(15000)
 print(account.get_balance())
 account.deposit(5000)
 account.withdraw(10000)
 print(account.get_balance())
+# print(account.__balance) Выведет ошибку, т. к. __balance - приватный атрибут
+print(account._BankAccount__balance)
